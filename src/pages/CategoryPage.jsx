@@ -9,17 +9,16 @@ function HomePage() {
   useEffect(() => {
     axios.get(listUrl).then((res) => {
       setCategories(res.data.categories);
-      // console.log(res.data.categories);
     });
   }, []);
 
   return (
-    <div>
-      <h1 className="text-4xl font-semibold text-center">
+    <div className="my-3 md:my-5 w-11/12 mx-auto">
+      <h1 className="text-xl md:text-4xl font-semibold text-center">
         See All The Delicious Foods
       </h1>
 
-      <div className="grid grid-cols-3 gap-4 mx-auto w-11/12 mt-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-5 md:mt-10">
         {categories.map((category, index) => {
           return (
             <div key={index}>
@@ -34,7 +33,7 @@ function HomePage() {
 
                 <NavLink
                   to={{
-                    pathname: `/details/${category.strCategory}`,
+                    pathname: `/category/${category.strCategory}`,
                     state: {
                       category: category.strCategory,
                     },
@@ -47,9 +46,6 @@ function HomePage() {
                   </div>
                 </NavLink>
               </div>
-
-              {/* <h1>{category.strCategory}</h1>
-               <p>{category.strCategoryDescription}</p> */}
             </div>
           );
         })}

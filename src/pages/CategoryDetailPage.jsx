@@ -13,7 +13,6 @@ function DetailPage() {
   const CategoryUrl = `https://www.themealdb.com/api/json/v1/1/categories.php`;
 
   useEffect(() => {
-    // Fetch category details
     axios.get(CategoryUrl).then((res) => {
       const categoryData = res.data.categories.find(
         (cat) => cat.strCategory === category
@@ -21,7 +20,6 @@ function DetailPage() {
       setCategoryDescription(categoryData?.strCategoryDescription || "");
     });
 
-    // Fetch meals based on category
     axios.get(FilterUrl).then((res) => {
       setFilter(res.data.meals);
     });

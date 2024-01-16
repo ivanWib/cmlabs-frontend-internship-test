@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function HomePage() {
   const [categories, setCategories] = useState([]);
@@ -14,11 +16,12 @@ function HomePage() {
 
   return (
     <div className="my-3 md:my-5 w-11/12 mx-auto">
-      <h1 className="text-xl md:text-4xl font-semibold text-center">
+      <Navbar />
+      <h1 className="text-xl md:text-3xl font-semibold text-center">
         See All The Delicious Foods
       </h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-5 md:mt-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-3 md:mt-6">
         {categories.map((category, index) => {
           return (
             <div key={index}>
@@ -50,6 +53,7 @@ function HomePage() {
           );
         })}
       </div>
+      <Footer />
     </div>
   );
 }

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function DetailPage() {
   const { category } = useParams();
@@ -27,6 +29,7 @@ function DetailPage() {
 
   return (
     <div className="my-3 md:my-5 w-11/12 mx-auto">
+      <Navbar />
       <h1 className="text-xl md:text-4xl font-semibold text-center">
         {category}
       </h1>
@@ -61,6 +64,7 @@ function DetailPage() {
           );
         })}
       </div>
+      <Footer />
     </div>
   );
 }
